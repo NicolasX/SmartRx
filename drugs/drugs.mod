@@ -17,7 +17,7 @@ tuple drug {
 }
 
 tuple block {
-  key int id;
+  int id;
   string day;
   float start;
   float end;
@@ -50,6 +50,7 @@ maximize
     	(d.priority * DrugAssignments[d][b]); 
 
 subject to {
+  
   //time interval constraint
   forall( d in Drugs)
   forall( b in Blocks)
@@ -105,5 +106,5 @@ subject to {
        ctRequiredNonAssignmentConstraints:
          DrugAssignments[d][b] == 0;        
        }
-       
+      
 }
